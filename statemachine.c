@@ -41,6 +41,18 @@ const char* state_machine_event_to_str(event_e ev)
     }
 }
 
+void state_machine_init(state_machine_t* sm)
+{
+    // initialize all internal state
+
+    sm->state = A;
+}
+
+void state_machine_deinit(state_machine_t* sm)
+{
+    // ensure proper cleanup of internal resources
+}
+
 event_e state_machine_wait_for_event()
 {
     // logic for waiting
@@ -107,9 +119,12 @@ void state_machine_process_event(state_machine_t* sm, event_e ev)
 int main(int argc, char *argv[])
 {
     state_machine_t sm;
+    state_machine_init(&sm);
 
     while (1) {
         event_e ev = state_machine_wait_for_event();
         state_machine_process_event(&sm, ev);
     }
+
+    state_machine_deinit(&sm);
 }
