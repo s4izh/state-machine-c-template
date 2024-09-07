@@ -12,17 +12,17 @@ This projects compiles as a normal c program with just:
 gcc statemachine.c -o statemachine
 ```
 
-I would recommend to enable all warnings with -Wall and -Wextra
+I would recommend to enable all warnings with `-Wall` and `-Wextra`
 and also enable 2 warnings as errors:
 
-* implicit-fallthrough:
+* `implicit-fallthrough`:
   used to catch potential bugs in switch statements where one case might "fall
   through" into the next case unintentionally.
   It may be usefull also to just keep it as warning so for example we can
   handle 2 states/events the same way if we wanted, using implicit fallthrough
   trhough switch statements.
 
-* switch:
+* `switch`:
   used to catch incompleted switch statements, making sure every state and
   transition are handled properly.
 
